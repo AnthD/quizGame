@@ -1,0 +1,443 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bn",
+				"btnAnswers"
+			],
+			[
+				"rad",
+				"radChoice"
+			],
+			[
+				"l",
+				"length"
+			],
+			[
+				"btn",
+				"btnAnswers"
+			],
+			[
+				"tem",
+				"tempChoice"
+			],
+			[
+				"prin",
+				"printAnswers"
+			],
+			[
+				"rand",
+				"random"
+			],
+			[
+				"legth",
+				"length"
+			],
+			[
+				"answer",
+				"answerRandNum"
+			],
+			[
+				"length",
+				"choices_length"
+			],
+			[
+				"cho",
+				"choices_length"
+			],
+			[
+				"ch",
+				"choices_length"
+			],
+			[
+				"an",
+				"answerRandNum"
+			],
+			[
+				"ra",
+				"randIndex"
+			],
+			[
+				"r",
+				"randIndex"
+			],
+			[
+				"app",
+				"appending"
+			],
+			[
+				"radC",
+				"radCon"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"data",
+				"myAjaxData"
+			],
+			[
+				"for",
+				"for\tfor (…) {…}"
+			],
+			[
+				"ht",
+				"html"
+			],
+			[
+				"div",
+				"divContainer"
+			],
+			[
+				"quest",
+				"questions"
+			],
+			[
+				"di",
+				"divContainer"
+			],
+			[
+				"do",
+				"document"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 443,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "myScript.js",
+			"settings":
+			{
+				"buffer_size": 5350,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": ">\tSublime Text Cheat Sheet\n>\t\tThis is a cheat sheet with keyboard shortcuts for Sublime Text. A comma means that all previous keys are no longer held. Add another tab with replace and \"(?!^)(?<!>)(?<!>\\t)\\t(?!\\t)\" and \"\\t\\t\" in regex mode.\n\n>\tBackups\nCtrl + Alt + [\t\t\t\t\t\tNavigate backwards through history\nCtrl + Alt + ]\t\t\t\t\t\tNavigate forwards through history\nCtrl + Alt + Shft + [\t\t\t\tNavigate to beginning of history\nCtrl + Alt + Shft + ]\t\t\t\tNavigate to end of history\nCtrl + Alt + Shft + M\t\t\t\tMerge selected version with current version\n\n>\tGeneral\nCtrl + B\t\t\t\t\t\t\tBuild file\nCtrl + Shft + B\t\t\t\t\t\tTest file\n\nCtrl + Shft + P\t\t\t\t\t\tOpen command palette\n\nCtrl + S\t\t\t\t\t\t\tSave file\nCtrl + Shft + S\t\t\t\t\t\tSave file as\n\n>\tPlugins\nCtrl + Alt + Shft + C,  G, F, M\t\tOpen Github Flavored Markdown cheat-sheet\nCtrl + Alt + Shft + C,  G, I, T\t\tOpen Git cheat-sheet\nCtrl + Alt + Shft + C,  G, O\t\tOpen Go cheat-sheet\nCtrl + Alt + Shft + C,  K, D, E\t\tOpen KDE cheat-sheet\nCtrl + Alt + Shft + C,  M, D\t\tOpen Markdown cheat-sheet\nCtrl + Alt + Shft + C,  R, X\t\tOpen Regular Expressions cheat-sheet\nCtrl + Alt + Shft + C,  S, H\t\tOpen Bash cheat-sheet\nCtrl + Alt + Shft + C,  S, T\t\tOpen Sublime Text cheat-sheet\n\nAlt  + ;\t\t\t\t\t\t\tAlign table with Regular Expressions\nCtrl + Alt + J\t\t\t\t\t\tAlign JSON formatting\n\n>\tText Editing\nCtrl + C\t\t\t\t\t\t\tCopy selection or whole line\nCtrl + V\t\t\t\t\t\t\tPaste and indent\nCtrl + X\t\t\t\t\t\t\tCut selection or whole line\n\nCtrl + Shft + F\t\t\t\t\t\tReplace in multiple files\nCtrl + Shft + D\t\t\t\t\t\tDuplicate line\nCtrl + J\t\t\t\t\t\t\tJoin next line with current line\nCtrl + K    + K\t\t\t\t\t\tDelete to the end of line\nCtrl + K    + Bksp\t\t\t\t\tDelete to start of line\nCtrl + Shft + K\t\t\t\t\t\tDelete line\nCtrl + T\t\t\t\t\t\t\tTranspose letters adjacent to cursor\nCtrl + Shft + U\t\t\t\t\t\tSoft undo\nCtrl + Shft + Y\t\t\t\t\t\tRedo\nCtrl + Shft + Z\t\t\t\t\t\tUndo\nCtrl + [\t\t\t\t\t\t\tIncrease tab\nCtrl + ]\t\t\t\t\t\t\tDecrease tab\nCtrl + Shft + /\t\t\t\t\t\tToggle comments on selected lines\nCtrl + Entr\t\t\t\t\t\t\tInsert line after\nCtrl + Shft + Entr\t\t\t\t\tInsert line before\nCtrl + Shft + Up\t\t\t\t\tMove line up\nCtrl + Shft + Down\t\t\t\t\tMove line down\nCtrl + Bksp\t\t\t\t\t\t\tDelete to beginning of word\nCtrl + Del\t\t\t\t\t\t\tDelete to end of word\n\n>\tText Navigation\nCtrl + F\t\t\t\t\t\t\tFind in file\nCtrl + F3\t\t\t\t\t\t\tFind next\nCtrl + Shft + F3\t\t\t\t\tFind previous\nCtrl + F,     Alt  + C\t\t\t\tToggle case sensitivity in Find\nCtrl + F,     Alt  + R\t\t\t\tToggle RegEx in Find\nCtrl + F,     Alt  + W\t\t\t\tToggle whole word matching in Find\nCtrl + Shft + F\t\t\t\t\t\tFind in files\n\nCtrl + H\t\t\t\t\t\t\tReplace in file\nCtrl + H,     Alt  + A\t\t\t\tToggle preserve case in Replace\n\nCtrl + K + C\t\t\t\t\t\tMove to cursor\nCtrl + K + 1-9\t\t\t\t\t\tFold to level 1-9\nCtrl + K + J\t\t\t\t\t\tUnfold all\nCtrl + M\t\t\t\t\t\t\tJump to matching bracket\nHome\t\t\t\t\t\t\t\tMove cursor to beginning of line.\nEnd\t\t\t\t\t\t\t\t\tMove cursor to end of line.\n\nCtrl + P\t\t\t\t\t\t\tGo to anything\nCtrl + G\t\t\t\t\t\t\tGo to line number\nCtrl + R\t\t\t\t\t\t\tGo to function\nCtrl + ;\t\t\t\t\t\t\tGo to word\n\nCtrl + Shft + P\t\t\t\t\t\tOpen command pallette\n\nF5\t\t\t\t\t\t\t\t\tNext bookmark\nShft + F5\t\t\t\t\t\t\tPrevious bookmark\nCtrl + F5\t\t\t\t\t\t\tToggle bookmark\nAlt  + F5\t\t\t\t\t\t\tSelect all bookmarks\nCtrl + Shft + F5\t\t\t\t\tClear all bookmarks\n\nCtrl + Shft + [\t\t\t\t\t\tFold code\nCtrl + Shft + ]\t\t\t\t\t\tUnfold code\n\n>\tText Selection\nCtrl + A\t\t\t\t\t\t\tSelect all\nCtrl + D\t\t\t\t\t\t\tRepeat multi-­select word\nAlt  + D\t\t\t\t\t\t\tSelect all instances of word\nCtrl + Shft + J\t\t\t\t\t\tExpand selection to indentation\nCtrl + K\t\t\t\t\t\t\tSkip multi-­select word\nCtrl + L\t\t\t\t\t\t\tSelect current line\nCtrl + Shft + M\t\t\t\t\t\tSelect everything within the current brackets\nCtrl + Shft + U\t\t\t\t\t\tUndo selection and actions\nCtrl + Shft + Spce\t\t\t\t\tExpand selection to scope\nCtrl + Clck\t\t\t\t\t\t\tMake multiple selections with mouse\n\n>\tWindow Navigation\nCtrl + K + B\t\t\t\t\t\tToggle side-bar\nCtrl + K + M\t\t\t\t\t\tToggle mini-map\nCtrl + N\t\t\t\t\t\t\tOpen new tab\nCtrl + Shft + N\t\t\t\t\t\tOpen new window\nCtrl + Alt + P\t\t\t\t\t\tSwitch to recent project\n\nAlt  + Shft + 1\t\t\t\t\t\tSwitch to 1 column and 1 row layout\nAlt  + Shft + 2\t\t\t\t\t\tSwitch to 2 column layout\nAlt  + Shft + 3\t\t\t\t\t\tSwitch to 3 column layout\nAlt  + Shft + 4\t\t\t\t\t\tSwitch to 4 column layout\nAlt  + Shft + 5\t\t\t\t\t\tSwitch to 2 column and 2 row layout\nAlt  + Shft + 8\t\t\t\t\t\tSwitch to 2 row layout\nAlt  + Shft + 9\t\t\t\t\t\tSwitch to 3 row layout\n\nCtrl + Shft + 1\t\t\t\t\t\tFocus on group 1\nCtrl + Shft + 2\t\t\t\t\t\tFocus on group 2\nCtrl + Shft + 3\t\t\t\t\t\tFocus on group 3\nCtrl + Shft + 4\t\t\t\t\t\tFocus on group 4\n\nCtrl + Tab\t\t\t\t\t\t\tSwitch to the next tab\nCtrl + Shft + Tab\t\t\t\t\tSwitch to the previous tab\n\nShft + F11\t\t\t\t\t\t\tDistra­ction free mode",
+			"file": "/Users/tonydavies/Library/Application Support/Sublime Text 3/Packages/Cheat Sheets/cheat-sheets/Sublime Text.cheatsheet",
+			"file_size": 4487,
+			"file_write_time": 131458366570000000,
+			"settings":
+			{
+				"buffer_size": 4484,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": ">\tZSH Cheatsheet\n>\t\tA cheatsheet for various shell commands.\n\n>\tKeyboard Shortcuts\n>\nCtrl + A\t\t\t        Jump to beginning of line.\nCtrl + C \t\t\t        Kills the current program\nCtrl + E\t\t\t        Jump to end of line.\nCtrl + L\t\t\t        Clear the terminal.\nCtrl + D              Close the terminal.\n\nCtrl + R\t\t\t        Reverse search through command history.\nCtrl + O\t\t\t        Executes the command and brings up the next command in history.\n\nCtrl + W\t\t\t        Deletes a word.\nCtrl + \\\t\t\t        Super kills the current program.\nAlt  + .\t\t\t        Inserts the last argument from the last command.\nEsc  + .\t\t\t        Inserts the last argument from the last command.\n\nCtrl + Shift + C      Copy texts those are selected to clipboard by selecting with cursor\nCtrl + Shift + V      Paste texts from clipboard\n\n\n>\tUseful tricks\n>\n~/\t\t\t\t\tUsers $HOME directory.\n!!\t\t\t\t\tRepeats the previous command.\n!^\t\t\t\t\tInserts the first argument from the previous command.\n!:1\t\t\t\t\tInserts the index 1 argument from the previous command.\n!$:h\t\t\t\tInsert the head of the last argument.\n!$:t\t\t\t\tInsert the tail of the last argument.\n!$\t\t\t\t\tInserts the last argument from the previous command.\n$_\t\t\t\t\tInserts the last argument from the previous command, does not expand.\n!*\t\t\t\t\tInserts all of the arguments from the previous command.\n!foo\t\t\t\tInsert the last command that started with foo.\n|&\t\t\t\t\tForce a command to pipe into the next. ie strace |& grep\n^foo^bar\t\t\tReplace the first instance of foo from the previous command with bar.\n!!:gs/foo/bar\t\tReplace all instances of foo from the previous command with bar.\n;\t\t\t\t\tPerform the next command.\n&&\t\t\t\t\tPerform next command and quit if the previous one failed.\n||\t\t\t\t\tPerform the next command if the previous one failed.\nx{y,z}\t\t\t\tExpands to `xy xz`.\n\n>\tUseful tools\n>\t\tA list of tools that aren't used often but very useful.\npv\t\t\t\t\tPipe viewer which behaves like cat but also gives a progress bar.\nscreen\t\t\t\tA terminal multiplexer.\n  Ctrl + A, D\t\tDetach screen.\n  $0 -r\t\t\t\tReattach screen.\nrename\t\t\t\tRename a file using sed syntax: 's/this/that/' *.txt\nclear\t\t\t\tClear the screen of text.\nreset\t\t\t\tClear the tty completely.\nwhence\t\t\t\tShow a function's definition or dealias a command.\nwmctrl\t\t\t\tWindow manager control.\nxev\t\t\t\t\tList X events such as key presses.\nxdotool\t\t\t\tSimulated an xevent, ie 'xdotool key l' will simulate an l keypress.\n\n>\tTo do\ngrep tail head man alias ln cp mv z\ngrep -R\nfind -name\ncut tr ls cat\n> >> 2>&1\nls -lSr\nls -ltr\nls -lah\ndu df dh\n\nhttp://www.linuxjournal.com/content/bash-parameter-expansion\n$ FOO=leading-trailing.txt\n\n$ echo ${FOO#leading-} # remove leading match\ntrailing.txt\n\n$ echo ${FOO%.txt} # remove trailing match\nleading-trailing\n\n$ echo ${FOO/-*/-following} # match a glob and substitute\nleading-following.txt\n\nexpansions http://linux.die.net/man/1/zshexpn\n",
+			"file": "/Users/tonydavies/Library/Application Support/Sublime Text 3/Packages/Cheat Sheets/cheat-sheets/Bash.cheatsheet",
+			"file_size": 2826,
+			"file_write_time": 131458366570000000,
+			"settings":
+			{
+				"buffer_size": 2826,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"Cheat Sheet: Bash"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"cheat",
+				"Cheat Sheet: Bash"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Install Package Control"
+			]
+		],
+		"width": 485.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/tonydavies/Library/Application Support/Sublime Text 3/Packages/Cheat Sheets/cheat-sheets/Bash.cheatsheet",
+		"/Users/tonydavies/Library/Application Support/Sublime Text 3/Packages/Cheat Sheets/cheat-sheets/Regular Expressions.cheatsheet"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"undefined",
+			"()\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 443,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								146,
+								146
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "myScript.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5350,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3317,
+								3317
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/tonydavies/Library/Application Support/Sublime Text 3/Packages/Cheat Sheets/cheat-sheets/Sublime Text.cheatsheet",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4484,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1677,
+								1677
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Cheat Sheets/cheat-sheets.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/tonydavies/Library/Application Support/Sublime Text 3/Packages/Cheat Sheets/cheat-sheets/Bash.cheatsheet",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2826,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2778,
+								2778
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Cheat Sheets/cheat-sheets.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "quiz.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

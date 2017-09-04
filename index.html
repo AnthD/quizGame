@@ -1,0 +1,82 @@
+<!DOCTYPE>
+
+<html>
+<head>
+    
+<title> Tonys quiz Game </title> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" > 
+<link rel="stylesheet" type="text/css" href="style.css">  
+
+</head>
+<body>
+
+<section class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			
+			<h1>  Tonys quiz Game</h1>
+			<p class="intro">
+				Welcome to my quiz game either press start to get random questions at you or select a category below 
+			</p>
+			
+			<label for="category"> Choose Category</label>
+			<select name="category" id="category" class="category"></select>
+			
+			<label for="diffEas">Easy</label>
+			<input type="checkbox" id="diffEas" class="diff" value="Easy"><label for="diffMed"> Medium </label>
+			<input type="checkbox" id="diffMed" class="diff" value="Medium"><label for="diffHard"> Hard </label>
+			<input type="checkbox" id="diffHard" class="diff" value="Hard">	
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary btn-lg quizStart" data-toggle="modal" data-target="#myModal">
+			  Start Quiz
+			</button>
+
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header quizHeader">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel quizTitle">Random Questions</h4>
+			      </div>
+			      <div class="modal-body quizBody">
+			      	<div id="time"></div>    
+					<div id="question"></div>
+			        
+			      </div>
+			      <div class="modal-footer quizFooter">
+			        <button id= "nxtQ" type="button" class="btn btn-default nxtQ"> Next Question</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+		</div>
+		
+
+	</div>
+
+</section>    
+	
+
+
+
+
+
+<h1 id="result"></h1>
+
+
+<!--</section>-->
+    
+<script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+<script src="myScript.js"></script>
+    
+</body>
+</html>
