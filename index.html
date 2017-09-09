@@ -23,12 +23,12 @@
 			<select name="category" id="category" class="category"></select>
 			
 			<label for="diffEas">Easy</label>
-			<input type="checkbox" id="diffEas" class="diff" value="Easy"><label for="diffMed"> Medium </label>
+			<input type="radio" id="diffEas" class="diff" value="Easy"><label for="diffMed"> Medium </label>
 			<input type="checkbox" id="diffMed" class="diff" value="Medium"><label for="diffHard"> Hard </label>
 			<input type="checkbox" id="diffHard" class="diff" value="Hard">	
 
 			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-primary btn-lg quizStart" data-toggle="modal" data-target="#myModal">
+			<button type="button" class="btn btn-primary btn-lg quizStart" data-toggle="modal" data-target="#myModal" data-backdrop = "static">
 			  Start Quiz
 			</button>
 
@@ -37,15 +37,15 @@
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
 			      <div class="modal-header quizHeader">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			        <h4 class="modal-title" id="myModalLabel quizTitle">Random Questions</h4>
 			      </div>
 			      <div class="modal-body quizBody">
-			      	<div id="time"></div>    
+			      	<div id="timing"></div>    
 					<div id="question"></div>
 			        
 			      </div>
 			      <div class="modal-footer quizFooter">
+			      <button type="button" class="btn btn-default pull-left myCloseBtn" data-dismiss="modal" aria-label="Close">Exit</span></button>
 			        <button id= "nxtQ" type="button" class="btn btn-default nxtQ"> Next Question</button>
 			      </div>
 			    </div>

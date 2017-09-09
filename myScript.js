@@ -1,61 +1,207 @@
 
 
-$("document").ready(function(){
-      
+//$("document").ready(function(){
     
+  
+//----- Stop watch Function Globals ----//
+    var time = 0; 
+    var running = 0;
+    var timeDisp = $("#timing");
+
+    //timeDisp.text("I can display something")
+
+//---- End Stop watch Function Globals ---//
+
 /*---------------------------------------------------------------------
-                       BUILD UI ELEMENTS
+                        STOP WATCH FUNCTION
 ---------------------------------------------------------------------*/
 
+//---Time  startPause ---
+function startPause(){
 
-      // Button answer container 
+    if(running == 0){
+      running = 1;
+
+      increment();
+
+      console.log(" Started Stop Watch");
+     
+    }else{
+
+      running = 0;
+      console.log(" Stop Watch not Started ");
+    }
+
+}// End of Stop Watch
+//--- Reset  ---- 
+ function reset(){
+
+    running = 0;
+    time = 0;
+
+    console.log(" Just Resetted the Stop Watch ");
+
+
+} //End of Reset 
+
+//---Time Increment ----
+
+function increment(){
+  
+  if(running == 1){
+
+      setTimeout(function(){
+        time++;
+        var mins = Math.floor(time/10/60);
+        var secs = Math.floor(time/10);
+        var tenths = time%10;
+
+        timeDisp.text("Time: " + secs);
+
+        if(secs == 60){
+          reset();
+          $(".allAnswerbtn").attr("disabled","disabled");
+          $(".nxtQ").attr("disabled","disabled");
+          //timeDisp.text(time);
+          console.log(" checked secs and set running to 0");
+        }
+        
+
+        
+        increment();
+
+
+      }, 100);
+
+  }
+
+
+} //End  of Increment 
+
+// startPause();
+  
+
+//------ Game UIs  -------------//
     var divContainer = document.createElement("div");
     divContainer.setAttribute("id", "radContainer");
-
     $("#question").after(divContainer);
+    var quest;
+    var points_correct;
+    var point_incorrect;
 
 
+//---- End Of Game UIs ---//  
+
+     
+
+   
+   
 
 
-/*---------------------------------------------------------------------
-                       DECALRING VARIABLES FOR AJAX
----------------------------------------------------------------------*/
+//---------Ajax global Variables  -----//
+
     var myAjaxData;
-    var catId;
     var numbQuestInCat = "/api_count.php?category=" + catId;
     var catList = "/api_category.php";
     var randomQest = "/api.php?";
     var url = "https://opentdb.com";
     var catLookup = "https://opentdb.com/api_category.php";
+     var qnumber = 2;
+    var questAmount = "amount="+ qnumber;
+    var catId;
+
+//------ Retrieving catgory id -----//
+     $("#category").change(function(){
+      $( "#category option:selected" ).each(function() {
+
+        //console.log(catId);
+        catId = $(this).val();
+        console.log(catId);
+
+      });
+      
+      
+    }); //----- End Catgory var event
+
+//--------- Retrieving diffy var ---------//
+     var diffy;
+
+      $(".diff ").click(function(){
+
+        $(":checked").change(function(){
+           diffy = $(this).val();
+          console.log(diffy);
+        })
+        
+      });//----- End diffy --
+
+
    // var SessTokenUrlReq = "https://opentdb.com/api_token.php?command=request";
    // var SessTokenUrlReSet = "https://opentdb.com/api_token.php?command=reset&token=YOURTOKENHERE";
 
-    var qnumber = 3;
-    var quest;
-    var points_correct;
-    var point_incorrect;
+
+//-- End of  Ajax Global Variables -----//
+
+
+
+/*---------------------------------------------------------------------
+                        AJAX 1 METHOD
+---------------------------------------------------------------------*/
+$.getJSON(url + catList).done(function(data){
+$.each(data,function(i, item){
+console.log("Ajx1 Success");
+console.log(item);
+//console.log(i);
+
+
+var myCateLength = item.length;
+console.log(myCateLength);
+
+  for (var t = 0; t < myCateLength; t++) {
+    $("#category").append("<option value = "+item[t].id+">"+ item[t].name+" </option>");
     
-    var questAmount = "amount="+ qnumber;
-    
+  }
+
+
+  catId = $("#category").val();
+  var categ = "&category = " + catId;
+  
+});
+
+}).fail(function(){
+
+console.log("First Ajax failed");
+});
 
 
 /*---------------------------------------------------------------------
                         AJAX METHOD
 ---------------------------------------------------------------------*/
-
+//------ Start Quiz button -----
 var btn_qStart = $(".quizStart");
-     btn_qStart.click(ajaxSelEvo);
+    btn_qStart.click(function(e){
 
-     var questArray = new Array();
-     var correctAnswerArray = new Array();
-     var fullChoiceQuestarray = new Array();
-     var globCountIndex = 0;
+      e.preventDefault();
+
+      ajaxSelEvo();
+
+    });
 
 
+
+    
      function ajaxSelEvo(){
+      
+    
            $.getJSON(url + randomQest + questAmount).done(function(data){
             var myAjaxData = data;
             
+
+            var questArray = new Array();
+var correctAnswerArray = new Array();
+var fullChoiceQuestarray = new Array();
+var globCountIndex = 0;
+var correct_answer;
                
             console.log(myAjaxData); 
 
@@ -67,15 +213,12 @@ var btn_qStart = $(".quizStart");
             $.each(myAjaxData.results, function(i, item){
 
 
-              console.log("From my first  foreach ajaxm question: "+ item.question);
-              console.log("this is my resources: "+ i);
-
 
               //saving questions in an array of questions
               
               var questions = item.question;
                questArray.push(questions);
-               $("#question").html(questArray[questIndex]);
+               $("#question").text((questIndex+ 1) +" : "+ questArray[globCountIndex]);
              })
           } //-- End of Printquest
               Printquests();
@@ -85,7 +228,7 @@ var btn_qStart = $(".quizStart");
             $.each(myAjaxData.results, function(i, item){ 
 
               //saving correct ansewers in an array of questions
-               var correct_answer = item.correct_answer;
+               correct_answer = item.correct_answer;
 
                correctAnswerArray.push(correct_answer);
 
@@ -135,12 +278,7 @@ var btn_qStart = $(".quizStart");
 
           getAnswer();
 
-          
 
-           // var choices_length = choices.length;
-              //  console.log("this is the length of quest choices: " +choices_length);
-
-              //Swap indexes
 
              
 /*---------------------------------------------------------------------
@@ -192,17 +330,10 @@ var btn_qStart = $(".quizStart");
                        // console.log(radChoice);
 
                        $("#radContainer").append(radChoice, "<br/>");
-                       if(el == correctAnswerArray[indi])
+                       if(el == correctAnswerArray[globCountIndex])
                         corrAnsID = "btnAnswers"+ i;
                         console.log("im checking shit is: " + corrAnsID);
-                       
-
-
-                      // $("#radContainer").html("<button id='"+i+ "' class=radBtn value='"+el+"'>"+el+"</button> <br>");
-
-                     //  console.log("From jquery each function :" +el );
-                       //console.log(radChoice);
-                      // }
+                     
 
             });
 
@@ -212,20 +343,24 @@ var btn_qStart = $(".quizStart");
      $(".btnAnswers").click(function(e) {
                          e.preventDefault();
                          var myChoiceAnwser= $(this).val();
-                         var btnShowCorr = $("#"+corrAnsID).attr("class","ctAnswer");
-                         var btnShowWro = $("#"+corrAnsID).attr("class","wgAnswer");
+                         var btnShowCorr = $("#"+corrAnsID).css("background-color","green");
+                         var btnShowWro = $(this).css("background-color","red");
                          var btnShowCorrdis = $(".allAnswerbtn").attr("disabled","disabled");
                          btnShowCorrdis;
 
                          console.log(myChoiceAnwser);
-                         if(correctAnswerArray[indi] == myChoiceAnwser ){
-                           console.log("my chosen answer is: " + myChoiceAnwser)
-                          btnShowCorr;
+                         console.log("CorrectAnser: " + correctAnswerArray[globCountIndex])
+                         if(correctAnswerArray[globCountIndex] == myChoiceAnwser ){
+                           console.log("Correct - my chosen answer is: " + myChoiceAnwser)
+                          //btnShowCorr;
+
+                         $(this).css("background-color", "green");
 
                          }else{
-                          console.log("incorect");
-                         btnShowWro;
-                          btnShowCorr
+                          console.log(myChoiceAnwser+ " is incorect, the answer is "+ correctAnswerArray[globCountIndex]);
+                        btnShowWro;
+                        btnShowCorr;
+                        //$(this).css("background-color", "red");
                           
                          }
                        });
@@ -233,7 +368,13 @@ var btn_qStart = $(".quizStart");
 
   }
 
- printAnswers();
+ printAnswers(globCountIndex);
+
+ startPause(); 
+
+ //--- Stop watch invoke ---//
+
+
 
     //console.log(questions);
 
@@ -242,22 +383,35 @@ var btn_qStart = $(".quizStart");
  $("#nxtQ").click(function(e) {
    e.preventDefault();
    globCountIndex++;
-   $("#radContainer .btnAnswers, br").remove();
+   
+   // if ( qnumber == 3 ) {
+
+   //  alert(" helooo");
+   //    $("#myModal, .modal-backdrop").css("display","none");
+     
+   // }
+//qnumber++;
 
    Printquests(globCountIndex);
+   $("#radContainer ").children().remove();
    printAnswers(globCountIndex);
 
 
 
  });
 
- //Modal and Close remove all 
+ //--- Modal and Close remove all 
 
- $(".close, #myModal").click(function(e) {
+ $(".myCloseBtn").click(function(e) {
    /* Act on the event */
+     
 
    $("#radContainer ").children().remove();
- });
+   //$("#radContainer .btnAnswers, br").remove();
+reset();
+    
+
+ }); //--- Close  modal button 
 
 
 //-- End of Ajax Success Last Line
@@ -274,45 +428,30 @@ var btn_qStart = $(".quizStart");
       };
 
 
-   //grabing btn and adding click
     
-    $("#myButton").click(function(){
-      // console.log("button click"); 
-        
-      
-    });
+    
     
  
-/*---------------------------------------------------------------------
-                      TIMER FUNCTION
----------------------------------------------------------------------*/ 
-var myTime = 0;
-var inValVar;
-function timer(){
 
 
-  myTime += 1;
-
-  $("#time").text(myTime);
-
-  if(myTime == 60)
-    clearInterval(inValVar);
-
-}
+// --- close modal button 
+$('button.close').click(function(){
 
 
 
-    inValVar = setInterval(timer, 1000);
- 
-
-console.log("this is a return from timer func: "+ timer());
-
-
- 
- 
-
-
-
-    
 });
+
+
+   
+ 
+
+//} //---- End of Ready Doc function 
+
+ 
+ 
+
+
+
+    
+//});
 
