@@ -1,9 +1,118 @@
-.ctAnswer{
 
-background-color: red;
+#pointsDisp{
+	text-align: center;
+    height: 30px;
+    margin: 0 0 0 5vw;
+    font-size: 2em;
 }
 
-.wgAnswer{
+body{
+    background-color: rgba(51, 145, 183, 0.63);
+}
 
-background-color: green;
+#introC {
+	text-align: center;;
+}
+
+.allAnswerbtn{
+   
+    min-width: 60vw;
+    margin: 2px 0px 0px 7vw;
+
+    font-size: 0.7em;
+}
+
+
+.quizCont{
+
+	  background-color: aliceblue;
+    border-bottom: 2px solid grey;
+    height: 50vh;
+}
+.quizCont > .form-group {
+
+	margin-left: 100px;
+	margin-left: 20vw;
+    margin-top: 10px;
+}
+
+#category{
+
+	width: 130px;
+	text-align: center;
+}
+.actBtn{
+
+	margin: 10px 0 0 22vw;
+    width: 160px;
+}
+
+.catePics{
+	dispaly: none;
+}
+
+.myModal{
+
+	display: block;
+    min-width: 86vw;
+    max-width: 100vw;
+    top: 86px;
+}
+
+@media screen and (min-width: 768px) { 
+
+.quizCont{
+    border-bottom: 2px solid grey;
+    height: 50vh;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+
+	.catePics{
+	    border-bottom: 2px solid;
+	    height: 50vh;
+
+	}
+
+	.actBtn{
+
+	margin: 10px 0 0 40vw;
+    width: 160px;
+}
+
+
+.myModal{
+
+	display: block;
+    min-width: 86vw;
+    width: 100vw;
+  
+}
+
+.quizCont > .form-group {
+
+	margin-left: 130px;
+    margin-top: 25px;
+    font-size: 1.4em;
+
+}
+
+.allAnswerbtn{
+    min-width: 30vw;
+    margin: 2px 0px 0px 2vw;
+
+    font-size: 1em;
+}
+
+
+#radContainer{
+	margin-left: 10px;
+}
+
+.intro{
+	font-size: xx-large;
+}
+
+
+
 }

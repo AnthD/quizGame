@@ -6,11 +6,9 @@
 //----- Stop watch Function Globals ----//
     var time = 0; 
     var running = 0;
-    var timeDisp = $("#timing");
+    var timeDisp = $("#timing");//---- End Stop watch Function Globals ---
 
-    //timeDisp.text("I can display something")
 
-//---- End Stop watch Function Globals ---//
 
 /*---------------------------------------------------------------------
                         STOP WATCH FUNCTION
@@ -78,7 +76,6 @@ function increment(){
 
 } //End  of Increment 
 
-// startPause();
   
 
 //------ Game UIs  -------------//
@@ -87,28 +84,27 @@ function increment(){
     $("#question").after(divContainer);
     var quest;
     var points_correct;
-    var point_incorrect;
+    var points_incorrect; //End Of Game UIs 
 
 
-//---- End Of Game UIs ---//  
+ 
 
      
-
-   
-   
-
 
 //---------Ajax global Variables  -----//
 
     var myAjaxData;
-    var numbQuestInCat = "/api_count.php?category=" + catId;
+    var numbQuestInCat = "/api_count.php?category=";  //+ catId;
     var catList = "/api_category.php";
     var randomQest = "/api.php?";
     var url = "https://opentdb.com";
+    var urlRand = url + randomQest;
     var catLookup = "https://opentdb.com/api_category.php";
-     var qnumber = 2;
-    var questAmount = "amount="+ qnumber;
-    var catId;
+     var qnumber = 50;
+    var questAmount = "amount="+ qnumber;   
+      var categ;
+      var catId;
+      var diffy;
 
 //------ Retrieving catgory id -----//
      $("#category").change(function(){
@@ -118,13 +114,14 @@ function increment(){
         catId = $(this).val();
         console.log(catId);
 
+
       });
       
       
-    }); //----- End Catgory var event
+    }); //End Catgory var event
 
 //--------- Retrieving diffy var ---------//
-     var diffy;
+     
 
       $(".diff ").click(function(){
 
@@ -133,17 +130,75 @@ function increment(){
           console.log(diffy);
         })
         
-      });//----- End diffy --
+      });//End diffy --
+
+      //---- Session Tokens 
+       var myToken;
+    var SessTokenUrlReq = "https://opentdb.com/api_token.php?command=request";
+   
+    var SessTokenUrlReSet = "https://opentdb.com/api_token.php?command=reset&token="+myToken;
+     var sessKey;
+     var sessUrl;
+    var token;
+   
+
+$(".resetQues").click(function(e){
+
+  e.preventDefault();
 
 
-   // var SessTokenUrlReq = "https://opentdb.com/api_token.php?command=request";
-   // var SessTokenUrlReSet = "https://opentdb.com/api_token.php?command=reset&token=YOURTOKENHERE";
+
+      $.getJSON(SessTokenUrlReSet).done(function(data){
+
+      console.log(data);
+
+      sessKey = data.token;
+      console.log("Session key: "+sessKey);
+
+
+    sessionStorage.setItem('token', sessKey);
+
+    token = sessKey;
+
+
+    });
+})
+
+//---- Getting and setting Session Storage 
+
+if(token != ''){
+
+  myToken = sessionStorage.getItem('token');
+
+  console.log("This is my token friend: "+ myToken);
+
+  var sessUrl = "&token="+myToken;
+}else{
+
+      $.getJSON(SessTokenUrlReq).done(function(data){
+
+      console.log(data);
+
+      sessKey = data.token;
+      console.log("Session key: "+sessKey);
+
+
+    sessionStorage.setItem('token', sessKey);
+
+    token = sessKey;
+
+      console.log("token now equal sesskey:"+token);
+
+    }).fail()
+}
+
+
+
 
 
 //-- End of  Ajax Global Variables -----//
 
-
-
+console.log("the toke is: "+ token)
 /*---------------------------------------------------------------------
                         AJAX 1 METHOD
 ---------------------------------------------------------------------*/
@@ -163,20 +218,16 @@ console.log(myCateLength);
   }
 
 
-  catId = $("#category").val();
-  var categ = "&category = " + catId;
   
 });
 
 }).fail(function(){
 
 console.log("First Ajax failed");
-});
+});//--- End of Ajax 1
 
 
-/*---------------------------------------------------------------------
-                        AJAX METHOD
----------------------------------------------------------------------*/
+
 //------ Start Quiz button -----
 var btn_qStart = $(".quizStart");
     btn_qStart.click(function(e){
@@ -188,40 +239,57 @@ var btn_qStart = $(".quizStart");
     });
 
 
-
-    
+/*---------------------------------------------------------------------
+                   Btn Quiz Start AJAX METHOD
+---------------------------------------------------------------------*/
+    console.log("sess url: "+ sessUrl);
      function ajaxSelEvo(){
-      
-    
-           $.getJSON(url + randomQest + questAmount).done(function(data){
-            var myAjaxData = data;
-            
+      //----- points init ---
+            points_correct = 0;
+            points_incorrect = 0;
+            console.log(" what tye are the points: "+ points_incorrect)
+            console.log(" what tye are the points: "+ points_correct)
+            $("#pointsDisp").html("Correct: "+ points_correct +"/"+  points_incorrect+" :Wrong"); //---End points display
 
-            var questArray = new Array();
-var correctAnswerArray = new Array();
-var fullChoiceQuestarray = new Array();
-var globCountIndex = 0;
-var correct_answer;
-               
-            console.log(myAjaxData); 
+            //--- Initlizing Categ and Diff url parameters
+            categ = (catId != null) ? "&category=" + catId : '';
+            var diff = (diffy != null)? "&difficulty="+diffy : '';
+
+
+
+
+
+    
+           $.getJSON(urlRand+ questAmount+ sessUrl + categ +diff).done(function(data){
+                var myAjaxData = data;
+                
+                 console.log("this is from categ: " + categ);
+
+                var questArray = new Array();
+                var correctAnswerArray = new Array();
+                var fullChoiceQuestarray = new Array();
+                var globCountIndex = 0;
+                var correct_answer;
+                   
+                console.log(myAjaxData); 
 
 /*---------------------------------------------------------------------
       grabing questions div and inputting question
----------------------------------------------------------------------*/
-          function Printquests(questIndex = 0){
+    ---------------------------------------------------------------------*/
+              function Printquests(questIndex = 0){
 
-            $.each(myAjaxData.results, function(i, item){
+                $.each(myAjaxData.results, function(i, item){
 
 
 
-              //saving questions in an array of questions
-              
-              var questions = item.question;
-               questArray.push(questions);
-               $("#question").text((questIndex+ 1) +" : "+ questArray[globCountIndex]);
-             })
-          } //-- End of Printquest
-              Printquests();
+                  //saving questions in an array of questions
+                  
+                  var questions = item.question;
+                   questArray.push(questions);
+                   $("#question").html((questIndex+ 1) +" : "+ questArray[globCountIndex]);
+                 })
+              } //-- End of Printquest
+                  Printquests();
 
 
           function getAnswer(){
@@ -326,7 +394,9 @@ var correct_answer;
                         radChoice.setAttribute("id", 'btnAnswers'+ i);
                         radChoice.setAttribute("value", el);
               var txtAnswer = document.createTextNode(el);
-              radChoice.appendChild(txtAnswer);
+              var changeHtml = $('<div>').html(txtAnswer).text();
+              console.log("Desocodoming the URI " + changeHtml);
+              radChoice.append(changeHtml);
                        // console.log(radChoice);
 
                        $("#radContainer").append(radChoice, "<br/>");
@@ -353,18 +423,25 @@ var correct_answer;
                          if(correctAnswerArray[globCountIndex] == myChoiceAnwser ){
                            console.log("Correct - my chosen answer is: " + myChoiceAnwser)
                           //btnShowCorr;
-
                          $(this).css("background-color", "green");
+                         points_correct+=1;
+
+                        
 
                          }else{
-                          console.log(myChoiceAnwser+ " is incorect, the answer is "+ correctAnswerArray[globCountIndex]);
-                        btnShowWro;
-                        btnShowCorr;
-                        //$(this).css("background-color", "red");
-                          
-                         }
-                       });
+                            console.log(myChoiceAnwser+ " is incorect, the answer is "+ correctAnswerArray[globCountIndex]);
+                            btnShowWro;
+                            btnShowCorr;
+                            //$(this).css("background-color", "red");
+                            points_incorrect+=1;
 
+                         }
+
+                          $(".nxtQ").removeAttr("disabled");
+                          $("#pointsDisp").html("Correct: "+ points_correct +"/"+  points_incorrect+" :Wrong");                          console.log(" what tye are the points: "+ points_incorrect)
+
+                       });
+$(".nxtQ").attr("disabled","disabled");
 
   }
 
@@ -384,13 +461,6 @@ var correct_answer;
    e.preventDefault();
    globCountIndex++;
    
-   // if ( qnumber == 3 ) {
-
-   //  alert(" helooo");
-   //    $("#myModal, .modal-backdrop").css("display","none");
-     
-   // }
-//qnumber++;
 
    Printquests(globCountIndex);
    $("#radContainer ").children().remove();
