@@ -1,4 +1,9 @@
 
+$("document").ready(function(){
+
+  $('#catePics2').html("<img src='images/randomQuestions.png' />");
+});
+
 
 //$("document").ready(function(){
     
@@ -112,7 +117,19 @@ function increment(){
 
         //console.log(catId);
         catId = $(this).val();
+        if(catId ==""){
+
+          $('#catePics2').html("<img src='images/randomQuestions.png' />");
+
+        }else{
+
+          $('#catePics2').html("<img src='images/"+ catId+ ".jpg' />");
+
+        }
+
+
         console.log(catId);
+        $('.modal-title').html($(this).text());
 
 
       });
@@ -133,70 +150,113 @@ function increment(){
       });//End diffy --
 
       //---- Session Tokens 
-       var myToken;
+    var myToken;
     var SessTokenUrlReq = "https://opentdb.com/api_token.php?command=request";
-   
-    var SessTokenUrlReSet = "https://opentdb.com/api_token.php?command=reset&token="+myToken;
+   var token = sessionStorage.getItem('token');
+    var SessTokenUrlReSet = "https://opentdb.com/api_token.php?command=reset&token="+token;
      var sessKey;
      var sessUrl;
-    var token;
-   
+
+
+//-- End of  Ajax Global Variables -----//
 
 $(".resetQues").click(function(e){
 
-  e.preventDefault();
+    e.preventDefault();
+
+    tokeReset();
+
+
+  
+});
+    
 
 
 
-      $.getJSON(SessTokenUrlReSet).done(function(data){
-
-      console.log(data);
-
-      sessKey = data.token;
-      console.log("Session key: "+sessKey);
-
-
-    sessionStorage.setItem('token', sessKey);
-
-    token = sessKey;
-
-
-    });
-})
 
 //---- Getting and setting Session Storage 
 
-if(token != ''){
+    if(token != null){
 
-  myToken = sessionStorage.getItem('token');
+      myToken = token;
 
-  console.log("This is my token friend: "+ myToken);
+      console.log("This is my token friend: "+ myToken);
 
-  var sessUrl = "&token="+myToken;
-}else{
+     sessUrl = "&token="+myToken;
 
-      $.getJSON(SessTokenUrlReq).done(function(data){
+    }else{
 
-      console.log(data);
+          $.getJSON(SessTokenUrlReq).done(function(data){
 
-      sessKey = data.token;
-      console.log("Session key: "+sessKey);
+          console.log(data);
+
+          sessKey = data.token;
+          console.log("Session key: "+sessKey);
+
+          sessionStorage.removeItem("token");
+
+          sessionStorage.setItem("token", sessKey);
+
+        token = sessionStorage.getItem('token');
+
+        console.log("token now equal sesskey:"+token);
+
+        myToken = token;
+
+        sessUrl = "&token="+myToken;
+
+     
+
+        }).fail()
+    }//End of getting Session
 
 
-    sessionStorage.setItem('token', sessKey);
 
-    token = sessKey;
+//----Session Reset ----//
 
-      console.log("token now equal sesskey:"+token);
+var tokeResetVar;
+function tokeReset(){
 
-    }).fail()
+  
+  $.getJSON(SessTokenUrlReSet).done(function(data){
+
+    //   console.log(data);
+
+    //   sessKey = data.token;
+    //   console.log("Session key: "+sessKey);
+
+    //   sessionStorage.removeItem('token');
+
+    //   console.log("just removed the current Token key");
+
+    //   console.log(data);
+
+    // sessionStorage.setItem('token', sessKey);
+
+    // token = sessionStorage.getItem('token');
+
+    // console.log("token has been saved: "+ token);
+    console.log(data.response_code);
+    return tokeResetVar= data.response_code;
+
+
+    }).fail(function(res, req, i){
+
+      console.log(" failed Respons: " + res);
+
+      console.log(" failed request:" + req);
+
+      console.log(" failed I param Response:" + i);
+
+      console.log(SessTokenUrlReSet);
+ return;
+
+
+    });
 }
 
 
 
-
-
-//-- End of  Ajax Global Variables -----//
 
 console.log("the toke is: "+ token)
 /*---------------------------------------------------------------------
@@ -249,19 +309,34 @@ var btn_qStart = $(".quizStart");
             points_incorrect = 0;
             console.log(" what tye are the points: "+ points_incorrect)
             console.log(" what tye are the points: "+ points_correct)
-            $("#pointsDisp").html("Correct: "+ points_correct +"/"+  points_incorrect+" :Wrong"); //---End points display
+            $("#pointsDisp").html("Correct: "+ points_correct +"/"+  points_incorrect+" :Wrong").fadeIn();; //---End points display
 
             //--- Initlizing Categ and Diff url parameters
             categ = (catId != null) ? "&category=" + catId : '';
             var diff = (diffy != null)? "&difficulty="+diffy : '';
 
-
-
-
-
     
            $.getJSON(urlRand+ questAmount+ sessUrl + categ +diff).done(function(data){
                 var myAjaxData = data;
+
+                if(myAjaxData.response_code == 4){
+
+                  tokeReset();
+                  console.log("Ran tokeRequest func");
+                  
+
+                }
+
+
+                  if(tokeReset() == 0){
+                    ajaxSelEvo();
+
+                    console.log("im back in ajaxEvo after resetting")
+                  }
+
+                  
+                 console.log(myAjaxData); 
+                
                 
                  console.log("this is from categ: " + categ);
 
@@ -271,7 +346,9 @@ var btn_qStart = $(".quizStart");
                 var globCountIndex = 0;
                 var correct_answer;
                    
-                console.log(myAjaxData); 
+               
+
+
 
 /*---------------------------------------------------------------------
       grabing questions div and inputting question
@@ -426,6 +503,7 @@ var btn_qStart = $(".quizStart");
                          $(this).css("background-color", "green");
                          points_correct+=1;
 
+
                         
 
                          }else{
@@ -434,6 +512,7 @@ var btn_qStart = $(".quizStart");
                             btnShowCorr;
                             //$(this).css("background-color", "red");
                             points_incorrect+=1;
+
 
                          }
 
@@ -460,14 +539,12 @@ $(".nxtQ").attr("disabled","disabled");
  $("#nxtQ").click(function(e) {
    e.preventDefault();
    globCountIndex++;
-   
 
-   Printquests(globCountIndex);
-   $("#radContainer ").children().remove();
-   printAnswers(globCountIndex);
+         $("#radContainer ").children().remove();
 
-
-
+     
+Printquests(globCountIndex);
+printAnswers(globCountIndex);
  });
 
  //--- Modal and Close remove all 
@@ -485,8 +562,10 @@ reset();
 
 
 //-- End of Ajax Success Last Line
-           }).fail(function()
+           }).fail(function(req, res, err)
             {
+
+
 
 /*---------------------------------------------------------------------
                        On Ajax fail 

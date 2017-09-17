@@ -10,6 +10,12 @@ body{
     background-color: rgba(51, 145, 183, 0.63);
 }
 
+img{
+
+	width: 100%;
+    height: 100%;
+}
+
 #introC {
 	text-align: center;;
 }
@@ -25,9 +31,9 @@ body{
 
 .quizCont{
 
-	  background-color: aliceblue;
+	background-color: aliceblue;
     border-bottom: 2px solid grey;
-    height: 50vh;
+    height: 400px;
 }
 .quizCont > .form-group {
 
@@ -38,7 +44,7 @@ body{
 
 #category{
 
-	width: 130px;
+	width: 200px;
 	text-align: center;
 }
 .actBtn{
@@ -48,7 +54,7 @@ body{
 }
 
 .catePics{
-	dispaly: none;
+	/*dispaly: none;*/
 }
 
 .myModal{
@@ -59,18 +65,36 @@ body{
     top: 86px;
 }
 
+
+@media screen and (max-width: 414px) {
+
+	#catePics1{
+	/*dispaly: none;*/
+	}
+
+	#catePics2{
+		dispaly: none;
+	}
+}
+
 @media screen and (min-width: 768px) { 
+
+#catePics1{
+	dispaly: none;
+}
+
+
 
 .quizCont{
     border-bottom: 2px solid grey;
-    height: 50vh;
+    height: 400px;
     background-color: aliceblue;
     border-radius: 5px;
 }
 
 	.catePics{
 	    border-bottom: 2px solid;
-	    height: 50vh;
+	    height: 400px;
 
 	}
 
